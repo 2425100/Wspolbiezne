@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Model;
 namespace ViewModel
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine("Hello, World");
-            //System.Console.ReadKey();
+            Greeter greeter = new Greeter();
+            System.Console.WriteLine(greeter.getText());
+            System.Console.ReadKey();
 
         }
     }
