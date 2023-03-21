@@ -17,6 +17,9 @@ namespace Testy
             Greeter greeter = new Greeter();
             greeter.setText("hello");
             Assert.AreNotEqual(greeter.getText(), "Hello, World");
+            greeter.setText("test");
+            Assert.AreEqual(greeter.getText(), "test");
+
 
         }
     }
