@@ -103,5 +103,6 @@ namespace Dane
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        
     }
 }

@@ -58,5 +58,6 @@ namespace Logika
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         
+        
     }
 }
