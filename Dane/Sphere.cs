@@ -21,10 +21,11 @@ namespace Dane
 
         public void randomizeSpeed()
         {
-            double speedX;
-            double speedY;
+           
             Random random = new Random();
-            
+            velocity[0] = random.NextDouble();
+            velocity[1] = random.NextDouble();
+
         }
     }
 }
