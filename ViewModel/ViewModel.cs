@@ -11,14 +11,14 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 namespace ViewModel
 {
-    public class ViewModel
+    public class ViewModel : INotifyPropertyChanged
     {
         //api modelu
         //api logiki
         private ModelAbstract model;
         //private AbstractLogicAPI logic;
-        private int canvasPositionX;
-        private int canvasPositionY;
+       // private int canvasPositionX;
+       // private int canvasPositionY;
         private int sphereCount;
         private ObservableCollection<SphereModel> sphereModels = new ObservableCollection<SphereModel>();
         public ICommand Start { get; set; }
@@ -36,7 +36,7 @@ namespace ViewModel
         
 //public ICommand Restart { get; set; }
 
-        public int CanvasPositionX
+      /*  public int CanvasPositionX
         {
             get { return canvasPositionX; }
             set 
@@ -53,7 +53,7 @@ namespace ViewModel
                 canvasPositionY = value;
                 OnPropertyChanged(nameof(canvasPositionY));
             }
-        }
+        }*/
         public int SphereCount
         {
             get { return sphereCount; }
@@ -65,8 +65,12 @@ namespace ViewModel
         }
         public ObservableCollection<SphereModel> SphereModels
         {
-            get { return sphereModels; }
-            set { sphereModels = value; OnPropertyChanged(nameof(SphereModel)); }
+            get {
+                
+                return sphereModels;
+                
+            }
+            set { sphereModels = value; OnPropertyChanged(nameof(SphereModels)); }
         }
         public void stop()
         {
@@ -76,6 +80,7 @@ namespace ViewModel
         {
             //model.getSphereModels().Clear();
             model.start(750, 350, SphereCount);
+            //this.sphereModels=model.getSphereModels();
             this.SphereModels=model.getSphereModels();
 
             

@@ -24,7 +24,7 @@ namespace Logika
             bool enabled = false;
             public LogicAPI(AbstractDataAPI abstractDataAPI = null)
             {
-                this.dataAPI = abstractDataAPI;
+                this.dataAPI = AbstractDataAPI.CreateAPI();
             }
             public List<SphereLogic> sphereLogics
             {

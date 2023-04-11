@@ -21,7 +21,7 @@
         <Button Content="Stop" Command="{Binding Stop}" VerticalAlignment="Center" Width="50" Height="20" Grid.Row="1" Margin="25,0,725,0"/>
         <TextBox Width="50" Height="20" Text="{Binding Path=SphereCount,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Grid.Row="1" Margin="99,27,651,53"/>
 
-        <ItemsControl ItemsSource="{Binding Path=SphereModels, UpdateSourceTrigger=PropertyChanged}">
+        <ItemsControl ItemsSource="{Binding Path=SphereModels}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <!-- Kolor Canvasu jest Placeholderem-->
@@ -32,8 +32,8 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemContainerStyle>
                 <Style TargetType="ContentPresenter">
-                    <Setter Property="Canvas.Left" Value="{Binding CanvasPositionX}"/>
-                    <Setter Property="Canvas.Top" Value="{Binding CanvasPositionY}"/>
+                    <Setter Property="Canvas.Left" Value="{Binding X}"/>
+                    <Setter Property="Canvas.Top" Value="{Binding Y}"/>
                 </Style>
             </ItemsControl.ItemContainerStyle>
             <ItemsControl.ItemTemplate>
