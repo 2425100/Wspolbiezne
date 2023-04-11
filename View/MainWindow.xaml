@@ -8,28 +8,37 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="900">
 
+    <Window.DataContext>
+        <vm:ViewModel/>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="400"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
-        <Button Content="Start" VerticalAlignment="Top" Width="50" Height="20" Grid.Row="1" Margin="25,10,725,0"/>
-        <Button Content="Stop" VerticalAlignment="Center" Width="50" Height="20" Grid.Row="1" Margin="25,0,725,0"/>
-        <TextBox Width="50" Height="20" Grid.Row="1" Margin="99,27,651,53"/>
-        <Canvas Width="760" Height="360" Grid.Row="0" Background="Aquamarine"/>
-        <ItemsControl Width="750" Height="350">
+        <Button Content="Start" Command="{Binding Start}" VerticalAlignment="Top" Width="50" Height="20" Grid.Row="1" Margin="25,10,725,0"/>
+        <Button Content="Stop" Command="{Binding Stop}" VerticalAlignment="Center" Width="50" Height="20" Grid.Row="1" Margin="25,0,725,0"/>
+        <TextBox Width="50" Height="20" Text="{Binding Path=SphereCount,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Grid.Row="1" Margin="99,27,651,53"/>
+
+        <ItemsControl ItemsSource="{Binding Path=SphereModels, UpdateSourceTrigger=PropertyChanged}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <!-- Kolor Canvasu jest Placeholderem-->
-                    <Canvas Width="750" Height="350" Background="#000000" />
+                    <Canvas Name="Plane" Width="750" Height="350" Background="#363834" />
                 </ItemsPanelTemplate>
                 
 
             </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemContainerStyle>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="Canvas.Left" Value="{Binding CanvasPositionX}"/>
+                    <Setter Property="Canvas.Top" Value="{Binding CanvasPositionY}"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
             <ItemsControl.ItemTemplate>
               <DataTemplate>
-                <Ellipse Height="2" Width="2" Fill="Yellow"/>
+                    <Ellipse Height="{Binding Radius}" Width="{Binding Radius}" Fill="#a5040d" Stroke="#000000" />
               </DataTemplate>
             </ItemsControl.ItemTemplate>
 

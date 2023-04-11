@@ -24,7 +24,8 @@ namespace View
         public MainWindow()
         {
             InitializeComponent();
-          
+            Ellipse circle = new Ellipse();
+
         }
     }
 }

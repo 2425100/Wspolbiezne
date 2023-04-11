@@ -37,7 +37,7 @@ namespace Logika
                     y = random.Next(radius, this.height - radius);
                 }
                 while (!checkIfPointOnPlane(x, y));
-                sphereList.Add(new Sphere(radius,x,y));
+                sphereList.Add(new Sphere(x,y,radius));
             }
         }
 

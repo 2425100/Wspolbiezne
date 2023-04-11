@@ -43,7 +43,7 @@ namespace Model
             set 
             {
                 dimensions[0] = value; 
-                OnPropertyChanged("X");
+                OnPropertyChanged(nameof(X));
                 
             }
         }
@@ -53,7 +53,7 @@ namespace Model
             set
             {
                 dimensions[1] = value;
-                OnPropertyChanged("Y");
+                OnPropertyChanged(nameof(Y));
 
             }
         }
@@ -63,7 +63,7 @@ namespace Model
             set
             {
                 radius = value;
-                OnPropertyChanged("Radius");
+                OnPropertyChanged(nameof(Radius));
 
             }
         }

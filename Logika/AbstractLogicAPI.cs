@@ -10,9 +10,9 @@ namespace Logika
 {
     public abstract class AbstractLogicAPI
     {
-        public static AbstractLogicAPI CreateAPI(AbstractDataAPI abstractDataAPI = null)
+        public static AbstractLogicAPI CreateAPI()
         {
-            return LogicAPI(abstractDataAPI);
+            return new LogicAPI(AbstractDataAPI.CreateAPI());
         }
         public abstract void createPlane(int width, int height, int numberOfSpheres);
         public abstract List<SphereLogic> GetSphereLogics();

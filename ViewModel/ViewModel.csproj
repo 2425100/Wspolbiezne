@@ -67,6 +67,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Logika\Logika.csproj">
+      <Project>{801c2c1d-a50b-46d7-9550-f5eb68d415c0}</Project>
+      <Name>Logika</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{b1f86ede-80ad-4367-bbba-d0605ae9530b}</Project>
       <Name>Model</Name>
