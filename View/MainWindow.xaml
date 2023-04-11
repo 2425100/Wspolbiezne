@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:View"
         xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800">
+        Title="MainWindow" Height="500" Width="900">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -17,13 +17,21 @@
         <Button Content="Start" VerticalAlignment="Top" Width="50" Height="20" Grid.Row="1" Margin="25,10,725,0"/>
         <Button Content="Stop" VerticalAlignment="Center" Width="50" Height="20" Grid.Row="1" Margin="25,0,725,0"/>
         <TextBox Width="50" Height="20" Grid.Row="1" Margin="99,27,651,53"/>
+        <Canvas Width="760" Height="360" Grid.Row="0" Background="Aquamarine"/>
         <ItemsControl Width="750" Height="350">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <!-- Kolor Canvasu jest Placeholderem-->
-                    <Canvas Width="750" Height="350" Background="#000000"/>
+                    <Canvas Width="750" Height="350" Background="#000000" />
                 </ItemsPanelTemplate>
+                
+
             </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+              <DataTemplate>
+                <Ellipse Height="2" Width="2" Fill="Yellow"/>
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
 
         </ItemsControl>
     </Grid>

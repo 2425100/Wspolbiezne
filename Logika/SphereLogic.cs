@@ -4,14 +4,15 @@ using System.Runtime.CompilerServices;
 
 namespace Logika
 {
-    public class Sphere : INotifyPropertyChanged
+    public class SphereLogic : INotifyPropertyChanged
     {
         private int x;
         private int y;
         private int radius;
 
 
-        public Sphere(int x, int y, int radius)
+
+        public SphereLogic(int x, int y, int radius)
         {
             this.x = x;
             this.y = y;

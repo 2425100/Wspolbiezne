@@ -35,7 +35,7 @@ namespace Dane
             {
                 if (value.Equals(Yspeed)) return;
                 yspeed = value;
-                OnPropertyChanged();
+                OnPropertyChanged("YSpeed");
             }
         }
 
@@ -46,7 +46,7 @@ namespace Dane
             {
                 if (value.Equals(Xspeed)) return;
                 xspeed = value;
-                OnPropertyChanged();
+                OnPropertyChanged("XSpeed");
             }
         }
 
@@ -57,7 +57,7 @@ namespace Dane
             {
                 if (value.Equals(radius)) return;
                 radius = value;
-                OnPropertyChanged();
+                OnPropertyChanged("Radius");
             }
         }
 
@@ -68,7 +68,7 @@ namespace Dane
             {
                 if (value.Equals(y)) return;
                 y = value;
-                OnPropertyChanged();
+                OnPropertyChanged("Y");
             }
         }
 
@@ -79,7 +79,7 @@ namespace Dane
             {
                 if (value.Equals(x)) return;
                 x = value;
-                OnPropertyChanged();
+                OnPropertyChanged("X");
             }
         }
 
