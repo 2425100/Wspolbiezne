@@ -44,6 +44,12 @@ namespace Logika
             set { sphere.Yspeed = value; OnPropertyChanged(nameof(Yspeed)); }
             
         }
+        public void randomizeSpeed()
+        {
+            Random random = new Random();
+            this.Xspeed = random.Next(-3, 3);
+            this.Yspeed = random.Next(-3, 3);
+        }
 
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -18,7 +18,7 @@ namespace Model
         }
         public abstract ObservableCollection<SphereModel> getSphereModels();
         public abstract void stop();
-        //public abstract void restart();
+        
         public abstract void start(int width, int height, int amount);
         private class Model: ModelAbstract 
         {
@@ -45,9 +45,9 @@ namespace Model
             }
             public override void stop() { 
                 logic.Stop();
-                //Console.WriteLine("Stop"); 
+               
             }
-            //public override void restart() { logic.restart(); }
+          
 
         }
 

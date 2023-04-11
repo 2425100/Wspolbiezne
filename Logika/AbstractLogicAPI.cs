@@ -35,6 +35,7 @@ namespace Logika
             public bool Enabled { get => enabled; set => enabled = value; }
             public override void createPlane(int width, int height, int numberOfSpheres)
             {
+                sphereLogics.Clear();
                 dataAPI.CreatePlane(width, height, numberOfSpheres);
                 foreach (Dane.Sphere sphere in dataAPI.GetSpheres())
                 {
@@ -43,27 +44,31 @@ namespace Logika
                 this.enabled = true;
                 foreach (SphereLogic sphereLogic in this.SphereLogics)
                 {
+                    sphereLogic.randomizeSpeed();
                     Task task = new Task(() =>
                     {
-                        if (sphereLogic.X + sphereLogic.Xspeed >= (width - sphereLogic.Radius))
+                        while (enabled)
                         {
-                            sphereLogic.Xspeed *= -1;
+                            if (sphereLogic.X + sphereLogic.Xspeed >= (width - sphereLogic.Radius))
+                            {
+                                sphereLogic.Xspeed *= -1;
+                            }
+                            if (sphereLogic.Y + sphereLogic.Y >= (height - sphereLogic.Radius)*2)
+                            {
+                                sphereLogic.Yspeed *= -1;
+                            }
+                            if (sphereLogic.X + sphereLogic.Xspeed <= 0)
+                            {
+                                sphereLogic.Xspeed *= -1;
+                            }
+                            if (sphereLogic.Y + sphereLogic.Yspeed <= 0)
+                            {
+                                sphereLogic.Yspeed *= -1;
+                            }
+                            sphereLogic.X += sphereLogic.Xspeed;
+                            sphereLogic.Y += sphereLogic.Yspeed;
+                            Thread.Sleep(10);
                         }
-                        if (sphereLogic.Y + sphereLogic.Y >= (height - sphereLogic.Radius))
-                        {
-                            sphereLogic.Yspeed *= -1;
-                        }
-                        if (sphereLogic.X + sphereLogic.Xspeed <= 0)
-                        {
-                            sphereLogic.Xspeed *= -1;
-                        }
-                        if (sphereLogic.Y + sphereLogic.Yspeed <= 0)
-                        {
-                            sphereLogic.Yspeed *= -1;
-                        }
-                        sphereLogic.X += sphereLogic.Xspeed;
-                        sphereLogic.Y += sphereLogic.Yspeed;
-                        Thread.Sleep(20);
                     });
                     task.Start();
                 }
