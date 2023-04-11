@@ -53,7 +53,11 @@ namespace Logika
                             {
                                 sphereLogic.Xspeed *= -1;
                             }
+<<<<<<< HEAD
                             if (sphereLogic.Y + sphereLogic.Y >= (height - sphereLogic.Radius)*2)
+=======
+                            if (sphereLogic.Y + sphereLogic.Y >= (height - sphereLogic.Radius))
+>>>>>>> 49592351dfb0e0092ec539fa2051540574fc1a4f
                             {
                                 sphereLogic.Yspeed *= -1;
                             }
