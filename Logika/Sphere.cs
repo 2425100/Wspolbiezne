@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Dane
+namespace Logika
 {
     public class Sphere : INotifyPropertyChanged
     {
@@ -12,13 +12,15 @@ namespace Dane
         private int radius;
         private int xspeed;
         private int yspeed;
-       
+
+        
 
         public Sphere(int x, int y, int radius)
         {
             this.x = x;
             this.y = y;
             this.radius = radius;
+            randomizeSpeed();
         }
 
         public int Yspeed
@@ -76,7 +78,36 @@ namespace Dane
             }
         }
 
-        
+        public void randomizeSpeed()
+        {
+            Random random = new Random();
+            this.xspeed = random.Next(-3,3);
+            this.yspeed = random.Next(-3,3);
+        }
+
+        public void movement(int width, int height)
+        {
+            
+            if (this.X + Xspeed >= (width - this.Radius))
+            {
+                Xspeed *= -1;
+            }
+            if (this.Y + Yspeed >= (height - this.Radius))
+            {
+                Yspeed *= -1;
+            }
+            if (this.X + Xspeed <= 0)
+            {
+                Xspeed *= -1;
+            }
+            if (this.Y + Yspeed <= 0)
+            {
+                Yspeed *= -1;
+            }
+            this.X += this.Xspeed;
+            this.Y += this.Yspeed;
+            OnPropertyChanged("Location");
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -84,6 +115,6 @@ namespace Dane
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        
+
     }
 }

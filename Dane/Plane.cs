@@ -21,7 +21,7 @@ namespace Dane
 
         public int Width { get => width; set => width = value; }
         public int Height { get => height; set => height = value; }
-        public bool Visibility { get => visibility; set => visibility = value; }
+        public bool enabled { get => visibility; set => visibility = value; }
         public List<Sphere> getSphereList { get => sphereList; }
 
         public void spawnSpheres(int numberOfSpheres)
@@ -37,7 +37,7 @@ namespace Dane
                     y = random.Next(radius, this.height - radius);
                 }
                 while (!checkIfPointOnPlane(x, y));
-                sphereList.Add(new Sphere(radius,x,y,0));
+                sphereList.Add(new Sphere(radius,x,y));
             }
         }
 

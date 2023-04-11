@@ -1,3 +1,6 @@
+using Dane;
+using System;
+
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -6,51 +9,42 @@ namespace Logika
 {
     public class SphereLogic : INotifyPropertyChanged
     {
-        private int x;
-        private int y;
-        private int radius;
-
-
-
-        public SphereLogic(int x, int y, int radius)
+        private Dane.Sphere sphere;
+        public SphereLogic(Dane.Sphere sphere)
         {
-            this.x = x;
-            this.y = y;
-            this.radius = radius;
+            this.sphere = sphere;
         }
-
         public int Radius
         {
-            get => radius;
+            get { return sphere.Radius; }
             set
             {
-                if (value == radius) return;
-                radius = value;
-                OnPropertyChanged();
+                sphere.Radius = value;
+                OnPropertyChanged(nameof(Radius));
             }
         }
-
-        public int Y
-        {
-            get => y;
-            set
-            {
-                if (value == y) return;
-                y = value;
-                OnPropertyChanged();
-            }
-        }
-
         public int X
         {
-            get => x;
-            set
-            {
-                if (value == x) return;
-                x = value;
-                OnPropertyChanged();
-            }
+            get { return sphere.X; }
+            set { sphere.X = value; OnPropertyChanged(nameof(X));}
         }
+        public int Y
+        {
+            get { return sphere.Y; }
+            set { sphere.Y = value; OnPropertyChanged( nameof(Y));}
+        }
+        public int Xspeed
+        {
+            get { return sphere.Xspeed; }
+            set { sphere.Xspeed = value; OnPropertyChanged(nameof(Xspeed));}
+        }
+        public int Yspeed
+        {
+            get { return sphere.Yspeed; }
+            set { sphere.Yspeed = value; OnPropertyChanged(nameof(Yspeed)); }
+            
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
