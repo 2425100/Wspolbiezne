@@ -6,14 +6,25 @@
         xmlns:local="clr-namespace:View"
         xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Window.DataContext>
-        <vm:GreeterViewModel/>
-    </Window.DataContext>
-    <Grid>
-        <TextBox HorizontalAlignment="Center" Margin="0,109,0,0" TextWrapping="Wrap" Text="{Binding Path=text, Mode=TwoWay}" VerticalAlignment="Top" Width="224" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" x:Name="Box"/>
-        <Button Content="Zmień" HorizontalAlignment="Center" Height="41" Margin="0,192,0,0" VerticalAlignment="Top" Width="120" Command="{Binding UpdateTextCommand}" CommandParameter="{Binding Path=Box.Text}"/>
-        <Label Content="{Binding Path=text, Mode=OneWay}" HorizontalAlignment="Center" Margin="0,72,0,0" VerticalAlignment="Top" Width="213" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        Title="MainWindow" Height="500" Width="800">
 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="400"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <Button Content="Start" VerticalAlignment="Top" Width="50" Height="20" Grid.Row="1" Margin="25,10,725,0"/>
+        <Button Content="Stop" VerticalAlignment="Center" Width="50" Height="20" Grid.Row="1" Margin="25,0,725,0"/>
+        <TextBox Width="50" Height="20" Grid.Row="1" Margin="99,27,651,53"/>
+        <ItemsControl Width="750" Height="350">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <!-- Kolor Canvasu jest Placeholderem-->
+                    <Canvas Width="750" Height="350" Background="#000000"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+        </ItemsControl>
     </Grid>
 </Window>

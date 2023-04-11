@@ -8,7 +8,18 @@ namespace Dane
 {
     public class Plane
     {
-        double[] dimensions=new double[2];
+        double[] dimensions = new double[2];
+
+        public double width
+        {
+            get { return dimensions[0]; }
+            set { dimensions[0] = value;}
+        }
+        public double height
+        {
+            get { return dimensions[1]; }
+            set { dimensions[1] = value; }
+        }
 
         public Plane(double width, double height)
         {
