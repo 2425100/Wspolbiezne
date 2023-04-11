@@ -8,29 +8,44 @@ namespace Dane
 {
     public class Plane
     {
-        double[] dimensions = new double[2];
+        private int width;
+        private int height;
+        private bool visibility = true;
+        private List<Sphere> sphereList = new List<Sphere>();
 
-        public double width
+        public Plane(int width, int height)
         {
-            get { return dimensions[0]; }
-            set { dimensions[0] = value;}
-        }
-        public double height
-        {
-            get { return dimensions[1]; }
-            set { dimensions[1] = value; }
+            this.width = width;
+            this.height = height;
         }
 
-        public Plane(double width, double height)
+        public int Width { get => width; set => width = value; }
+        public int Height { get => height; set => height = value; }
+        public bool Visibility { get => visibility; set => visibility = value; }
+        public List<Sphere> getSphereList { get => sphereList; }
+
+        public void spawnSpheres(int numberOfSpheres)
         {
-            dimensions[0]=width;
-            dimensions[1]=height;
+            Random random = new Random();
+            int radius = 50;
+            int x, y;
+            for(int i = 0; i < numberOfSpheres; i++)
+            {
+                do
+                {
+                    x = random.Next(radius, this.width - radius);
+                    y = random.Next(radius, this.height - radius);
+                }
+                while (!checkIfPointOnPlane(x, y));
+                sphereList.Add(new Sphere(radius,x,y,0));
+            }
         }
 
         public bool checkIfPointOnPlane(double x, double y)
         {
-            if (x >= 0 && x <= dimensions[0] && y >= 0 && y <= dimensions[1]) return true;
+            if (x >= 0 && x <= width && y >= 0 && y <= height) return true;
             return false;
         }
+
     }
 }
