@@ -1,14 +1,11 @@
-
-namespace Tests
+namespace TestProject1
 {
-
     [TestClass]
-    public class SphereTest
+    public class UnitTest1
     {
         [TestMethod]
         public void TestMethod1()
         {
-            
         }
     }
 }

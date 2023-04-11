@@ -20,11 +20,12 @@ namespace Dane
             set => mass = value;
         }
 
-        public Sphere(double x, double y, double radius)
+        public Sphere(double x, double y, double radius, double mass)
         {
             this.x = x;
             this.y = y;
             this.radius = radius;
+            this.mass = mass;
             randomizeSpeed();
         }
 
