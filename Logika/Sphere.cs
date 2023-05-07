@@ -9,6 +9,7 @@ namespace Logika
     {
         private int x;
         private int y;
+        private int weight;
         private int radius;
         private int xspeed;
         private int yspeed;
@@ -76,6 +77,11 @@ namespace Logika
                 x = value;
                 OnPropertyChanged("X");
             }
+        }
+        public int Weight
+        {
+            get { return weight; }
+            set { if(value<=0) return; weight = value;}
         }
 
         public void randomizeSpeed()

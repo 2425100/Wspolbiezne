@@ -44,6 +44,11 @@ namespace Logika
             set { sphere.Yspeed = value; OnPropertyChanged(nameof(Yspeed)); }
             
         }
+        public int Weight
+        {
+            get { return sphere.Weight; }
+            set { sphere.Weight = value; }
+        }
         public void randomizeSpeed()
         {
             Random random = new Random();

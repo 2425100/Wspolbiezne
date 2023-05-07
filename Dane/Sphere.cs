@@ -9,6 +9,7 @@ namespace Dane
     {
         private int x;
         private int y;
+        private int weight=10;
         private int radius;
         private int xspeed;
         private int yspeed;
@@ -75,8 +76,13 @@ namespace Dane
                 OnPropertyChanged("X");
             }
         }
+        public int Weight
+        {
+            get { return weight; }
+            set { if (value <= 0) return; weight = value; }
+        }
 
-        
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
