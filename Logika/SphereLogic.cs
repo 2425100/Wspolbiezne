@@ -14,6 +14,10 @@ namespace Logika
         {
             this.sphere = sphere;
         }
+        public SphereLogic()
+        {
+            
+        }
         public int Radius
         {
             get { return sphere.Radius; }

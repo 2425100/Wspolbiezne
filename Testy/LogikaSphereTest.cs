@@ -1,4 +1,4 @@
-﻿using Logika;
+﻿using Dane;
 namespace Testy
 {
     [TestClass]

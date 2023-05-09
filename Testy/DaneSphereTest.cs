@@ -12,7 +12,6 @@ namespace Testy
             Assert.AreEqual(sphere.Radius, 3);
             Assert.AreEqual(sphere.X, 1);
             Assert.AreEqual(sphere.Y, 2);
-<<<<<<< HEAD
             sphere.X = 2;
             Assert.AreEqual(sphere.X, 2);
             sphere.Y = 3;
@@ -28,9 +27,7 @@ namespace Testy
             Assert.AreEqual(sphere.Yspeed, 1);
             sphere.Xspeed = 1;  
             Assert.AreEqual(sphere.Xspeed, 1);
-=======
-            
->>>>>>> e619218d596d9d649b95231b172134fe11ed1df4
+
         }
     }
 }
