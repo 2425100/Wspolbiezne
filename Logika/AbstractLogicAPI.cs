@@ -26,6 +26,7 @@ namespace Logika
         private AbstractDataAPI dataAPI;
         private List<SphereLogic> SphereLogics = new List<SphereLogic>();
         bool enabled = false;
+        private Logger logger=new Logger();
         public LogicAPI(AbstractDataAPI abstractDataAPI = null)
         {
             this.dataAPI = AbstractDataAPI.CreateAPI();
@@ -33,7 +34,9 @@ namespace Logika
         public List<SphereLogic> sphereLogics
         {
             get { return SphereLogics; }
-            set { SphereLogics = value; }
+            set { SphereLogics = value;
+                logger.Spheres = SphereLogics;
+            }
         }
 
         public bool Enabled { get => enabled; set => enabled = value; }
@@ -100,9 +103,11 @@ namespace Logika
                     continue;
                 }
 
-                lock (secondSphere)
-                {
+               /* lock (secondSphere)
+                {*/
                     if (CalculateDistance(sphere, secondSphere) < (sphere.Radius / 2 + secondSphere.Radius / 2))
+                    {
+                    lock (secondSphere)
                     {
                         //tu sprawdzamy czy kulki już sie nie odbiły
                         int relativeX = secondSphere.Xspeed - sphere.Xspeed;
