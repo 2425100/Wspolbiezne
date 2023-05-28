@@ -35,7 +35,7 @@ namespace Logika
         {
             get { return SphereLogics; }
             set { SphereLogics = value;
-                logger.Spheres = SphereLogics;
+                //logger.Spheres = SphereLogics;
             }
         }
 
@@ -49,6 +49,8 @@ namespace Logika
                 this.SphereLogics.Add(new SphereLogic(sphere));
             }
             this.enabled = true;
+            this.logger.Spheres = SphereLogics;
+            this.logger.startLogger(1000);
             foreach (SphereLogic sphereLogic in this.SphereLogics)
             {
                 sphereLogic.randomizeSpeed();
@@ -147,6 +149,8 @@ namespace Logika
         public override void Stop()
         {
             this.enabled = false;
+            this.logger.Stop();
+            this.logger.Spheres.Clear();
         }
         public override List<SphereLogic> GetSphereLogics()
         {
