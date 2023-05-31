@@ -50,7 +50,8 @@ namespace Logika
             }
             this.enabled = true;
             this.logger.Spheres = SphereLogics;
-            this.logger.startLogger(1000);
+            Task timer = new Task(()=> { this.logger.startLogger(1000); });
+            timer.Start();
             foreach (SphereLogic sphereLogic in this.SphereLogics)
             {
                 sphereLogic.randomizeSpeed();
